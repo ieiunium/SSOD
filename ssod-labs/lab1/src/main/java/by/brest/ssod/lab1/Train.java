@@ -11,6 +11,7 @@ public class Train {
     private int trainBreak;
     private String title;
     private String color;
+    private int distToNextTrain;
 
     private final static Random random = new Random();
 
@@ -36,7 +37,16 @@ public class Train {
                 ", trainBreak=" + trainBreak +
                 ", title='" + title + '\'' +
                 ", color='" + color + '\'' +
+                ", distToNextTrain=" + distToNextTrain +
                 '}';
+    }
+
+    public int getDistToNextTrain() {
+        return distToNextTrain;
+    }
+
+    public void setDistToNextTrain(int distToNextTrain) {
+        this.distToNextTrain = distToNextTrain;
     }
 
     public String getColor() {

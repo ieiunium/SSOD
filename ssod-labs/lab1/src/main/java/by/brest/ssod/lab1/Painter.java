@@ -11,21 +11,24 @@ public class Painter extends JFrame {
     private Way way;
 
     public Painter(){
-        final Painter painter = this;
         this.setBounds(50,50,640,480);
+    }
+
+    public void start(final int ms){
+        final Painter painter = this;
         new Thread(new Runnable() {
             @Override
             public void run() {
                 for(;;) {
                     painter.update(painter.getGraphics());
                     try {
-                        Thread.sleep(100);
+                        Thread.sleep(ms);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
             }
-        });
+        }).start();
     }
 
     @Override
@@ -40,7 +43,7 @@ public class Painter extends JFrame {
         int x0 = width/2;
         int y0 = height/2;
         g.drawOval(x0-R,y0-R,2*R,2*R);
-        int textHeight = 80;
+        int textHeight = 40;
         int textWidth = 20;
         for(Train i: way.getTrainList()){
             double t = (((double)i.getLocation())/1000)*2*Math.PI;
@@ -50,6 +53,11 @@ public class Painter extends JFrame {
             g.fillOval(x-10,y-10,19,19);
             g.drawString(i.toString(),textWidth,textHeight);
             textHeight += 20;
+        }
+
+        if(way.isCrash()){
+            g.setColor(Color.BLACK);
+            g.drawString("CRASH",x0,y0);
         }
     }
 
