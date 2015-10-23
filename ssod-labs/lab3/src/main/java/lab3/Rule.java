@@ -35,5 +35,16 @@ public class Rule {
     public double getM(double x1,double x2,double x3){
         return getM12(x1,x2) * getM3(x3);
     }
+
+    @Override
+    public String toString() {
+        return "{IF " + f1 + " " + ruleType + " " + f2 + " THEN " + f3 + " }";
+    }
+
+    public Function getF1() {
+        return f1;
+    }
+
+
 }
 

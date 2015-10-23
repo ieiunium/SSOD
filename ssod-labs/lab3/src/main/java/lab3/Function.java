@@ -28,6 +28,11 @@ public class Function {
         return (res<0)?0:res;
     }
 
+    @Override
+    public String toString() {
+        return title+"("+x1+";"+x3+")";
+    }
+
     private double getY(double x,double x1,double y1,double x2,double y2){
         return ((x-x1)*(y2-y1)/(x2-x1)) + y1;
     }
