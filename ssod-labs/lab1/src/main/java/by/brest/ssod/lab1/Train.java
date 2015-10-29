@@ -6,14 +6,14 @@ import java.util.Random;
  * Created by kirill on 4.9.15.
  */
 public class Train {
-    private int location;
-    private int speed;
-    private int trainBreak;
-    private String title;
-    private String color;
-    private int distToNextTrain;
+    protected int location;
+    protected int speed;
+    protected int trainBreak;
+    protected String title;
+    protected String color;
+    protected int distToNextTrain;
 
-    private final static Random random = new Random();
+    protected final static Random random = new Random();
 
     public Train(int location, int speed, int trainBreak, String title,String color) {
         this.location = location;

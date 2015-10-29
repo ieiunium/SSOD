@@ -35,7 +35,7 @@ public class Way {
             rails[x1] = null;
             i.tick();
             int x2 = i.getLocation();
-            for (int j = x1; j != x2; j = (j + inc)%1000 ) {
+            for (int j = x1; j != x2; j = (j + inc+1000)%1000 ) {
                 if(rails[j]!=null){
                     i.setLocation(j);
                     crash = true;
@@ -60,7 +60,7 @@ public class Way {
             sum += dist;
             trainList.get(i).setDistToNextTrain(dist);
         }
-        log.info("sum: "+sum);
+        //log.info("sum: "+sum);
     }
 
     public void start(){
@@ -85,7 +85,7 @@ public class Way {
                 Thread.sleep(ms);
             }
         }catch (Exception ex){
-            log.info(ex.toString());
+            ex.printStackTrace();
         }
     }
 
